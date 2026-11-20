@@ -8,4 +8,5 @@ dist/
 *.log
 .env
 .env.*
-public/__grok/
+.project_id
+
