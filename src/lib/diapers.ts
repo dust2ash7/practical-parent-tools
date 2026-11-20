@@ -63,6 +63,16 @@ export function estimateDiapers(input: {
   };
 }
 
+export const DIAPER_AGE_GUIDE = [
+  { age: "0–4 weeks", perDay: "8–12", perMonth: "240–365", size: "Newborn" },
+  { age: "1–3 months", perDay: "7–10", perMonth: "210–300", size: "Size 1" },
+  { age: "3–6 months", perDay: "6–8", perMonth: "180–245", size: "Size 2" },
+  { age: "6–12 months", perDay: "5–7", perMonth: "150–215", size: "Size 3, then 4" },
+  { age: "12–18 months", perDay: "4–6", perMonth: "120–180", size: "Size 4 or 5" },
+  { age: "18–24 months", perDay: "4–5", perMonth: "120–150", size: "Size 5" },
+  { age: "2–3 years", perDay: "3–5", perMonth: "90–150", size: "Size 5 or 6" },
+] as const;
+
 export function typicalSizeForAge(months: number): string {
   if (months < 1) return "Newborn or Size 1";
   if (months < 3) return "Size 1";

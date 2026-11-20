@@ -1,6 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { OtherTools } from "@/components/other-tools";
-import { Faq, Kicker, Lead, Note, NumberField, Page, Panel, RangeField, Stat } from "@/components/ui";
+import { Faq, Guide, Kicker, Lead, Note, NumberField, Page, Panel, RangeField, Stat } from "@/components/ui";
 import { DIAPER_SIZES, estimateDiapers } from "@/lib/diapers";
 import { money } from "@/lib/format";
 import { useMemo, useState } from "react";
@@ -8,7 +8,7 @@ import { useMemo, useState } from "react";
 export const Route = createFileRoute("/diaper-cost")({
   head: () => ({
     meta: [
-      { title: "Diaper size and monthly cost calculator · Practical Parent Tools" },
+      { title: "Diaper size and monthly cost calculator · Parent Tools" },
       {
         name: "description",
         content:
@@ -141,6 +141,47 @@ function DiaperPage() {
           </tbody>
         </table>
       </section>
+
+      <Guide title="How to read the monthly number">
+        <p>
+          Size follows weight, not the birthday. Brand charts overlap on purpose, so a 13-pound baby can
+          land in Size 1 and Size 2 at the same time. This page picks the range whose middle is closest to
+          the weight you entered, and it names the other sizes that still fit. If the diaper leaks at the
+          legs, feels tight, or leaves deep red marks, try the next size even if the chart still lists the
+          current one. A diaper that is too big can leak too. Wet diapers that gap at the thighs are the
+          usual clue.
+        </p>
+        <p>
+          Age is only a cross-check. A big two-month-old and a small two-month-old do not wear the same
+          diaper. The note under the estimate appears when the usual size for that age and the size for this
+          weight disagree. Trust the weight printed on the box you are actually buying. Pampers, Huggies, and
+          store brands are close, not identical, and overnight diapers are often cut roomier than daytime
+          ones.
+        </p>
+        <h3>What “a month” means here</h3>
+        <p>
+          The monthly count is diapers per day times 30.4 days, so twelve of these months land near a
+          365-day year. Newborns are the expensive end: a change with every feed can mean 10 to 12 diapers a
+          day, sometimes more. By the middle of the first year many babies settle nearer 6 to 8. After the
+          first birthday the number often drifts toward 4 to 6, then lower again as potty training starts.
+          Sick days, travel, and a run of blowouts will not match a calm week. Count a typical day, not the
+          worst one.
+        </p>
+        <p>
+          “Cost of what you use” is the real monthly burn: the price of a box divided by how many diapers
+          are in it, times the diapers you expect to use. The register total is higher whenever you have to
+          buy a whole box that spills into next month. That leftover is not wasted. It is inventory. If a
+          sale box is much cheaper per diaper, the leftover is usually worth it. If you are about to size
+          up, a giant box of the old size is the expensive mistake.
+        </p>
+        <p>
+          The{" "}
+          <Link to="/diapers-by-age">diapers-per-month guide</Link> lists common daily ranges by age if you
+          do not want to count a day yet. Those ranges are what many parents report, not a prescription.
+          Cloth, part-time cloth, and early potty training will not match a disposable chart. A baby who is
+          wet or soiled needs a change whether or not the day has hit a number.
+        </p>
+      </Guide>
 
       <section className="mt-8 max-w-2xl">
         <h2 className="font-serif text-2xl font-medium tracking-tight">How to use it</h2>

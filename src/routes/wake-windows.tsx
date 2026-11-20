@@ -1,7 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { OtherTools } from "@/components/other-tools";
-import { Faq, Kicker, Lead, Note, Page, Panel, RangeField, Stat } from "@/components/ui";
+import { Faq, Guide, Kicker, Lead, Note, Page, Panel, RangeField, Stat } from "@/components/ui";
 import { clock, formatMinutes } from "@/lib/format";
 import {
   ageLabel,
@@ -17,7 +17,7 @@ import {
 export const Route = createFileRoute("/wake-windows")({
   head: () => ({
     meta: [
-      { title: "Baby wake window calculator · Practical Parent Tools" },
+      { title: "Baby wake window calculator · Parent Tools" },
       {
         name: "description",
         content:
@@ -177,6 +177,51 @@ function WakeWindowsPage() {
           ))}
         </ul>
       </section>
+
+      <Guide title="What a wake window is">
+        <p>
+          A wake window is the stretch of time a baby is awake between one sleep and the next. It includes
+          feeding, a diaper change, and whatever play or holding fits in that stretch. It is not the length
+          of the whole day, and it is not a promise that the baby will sleep the moment the clock runs out.
+        </p>
+        <p>
+          Most babies can stay awake a little longer as they get older. The first window of the morning is
+          usually the shortest. The last one, before bedtime, is usually the longest. Naps tend to shorten
+          through the day: a longer morning nap, then a shorter one, then a brief late-day nap that only
+          exists to bridge to bedtime. When that last nap starts pushing bedtime late, it is often a sign the
+          baby is ready to drop it.
+        </p>
+        <h3>Newborns are the exception</h3>
+        <p>
+          In the first six weeks, and often through twelve, sleep is still tied to hunger. A clock schedule
+          with the same naps every day is not realistic. The useful idea is a short awake stretch — about 45
+          to 90 minutes — and then help with sleep when cues show up. Cues that usually mean “soon” are
+          looking away, a slower body, a sudden fuss, a yawn, or rubbing at the face. Hard crying often means
+          the window already ran too long.
+        </p>
+        <h3>How the naps usually drop</h3>
+        <p>
+          Around three to four months, many families can sketch a day. Four naps is common. By four to six
+          months, three naps is the usual pattern. Between six and nine months, a lot of babies drop the
+          third nap. Two naps then hold through most of the first year. The move from two naps to one can
+          happen anywhere from about twelve to eighteen months. A one-nap day needs a much longer morning
+          before the child is tired enough to sleep. Between two and three years, some children stop napping.
+          When the nap goes, bedtime usually moves earlier so the night covers the sleep that used to happen
+          after lunch.
+        </p>
+        <p>
+          These ranges sit next to commonly published totals for how much young children sleep in 24 hours.
+          The wake windows themselves are parenting guidelines, not a diagnosis and not a rule your baby has
+          to meet. A baby who is happy, fed, and gaining weight can sit a little outside the band. One who
+          is miserable at the end of every window is telling you the band is too long for them today.
+        </p>
+        <p>
+          Do not wake a baby just to protect the sample timeline. Short naps are normal for a long time. Read
+          the{" "}
+          <Link to="/sleep-schedule">sleep schedule by age</Link> if you want the full table without the
+          clock, and ask your pediatrician if sleep, breathing, feeding, or weight gain worries you.
+        </p>
+      </Guide>
 
       <section className="mt-8 max-w-2xl">
         <h2 className="font-serif text-2xl font-medium tracking-tight">How to use it</h2>

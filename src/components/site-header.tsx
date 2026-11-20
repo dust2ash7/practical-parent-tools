@@ -5,6 +5,9 @@ import { useEffect, useState } from "react";
 const LINKS = [
   { to: "/wake-windows", label: "Wake windows" },
   { to: "/diaper-cost", label: "Diaper cost" },
+  { to: "/sleep-schedule", label: "Sleep by age" },
+  { to: "/diapers-by-age", label: "Diapers by age" },
+  { to: "/faq", label: "FAQ" },
   { to: "/ev-vs-hybrid", label: "EV vs hybrid" },
 ] as const;
 
@@ -14,11 +17,11 @@ export function SiteHeader() {
       <div className="mx-auto flex w-full max-w-3xl flex-col gap-3 px-4 py-3">
         <div className="flex items-center justify-between gap-3">
           <Link to="/" className="font-serif text-lg font-medium tracking-tight text-ink">
-            Practical Parent Tools
+            Parent Tools
           </Link>
           <ThemeToggle />
         </div>
-        <nav aria-label="Tools" className="flex flex-wrap gap-x-5 gap-y-1">
+        <nav aria-label="Pages" className="flex flex-wrap gap-x-5 gap-y-1">
           {LINKS.map((link) => (
             <Link
               key={link.to}

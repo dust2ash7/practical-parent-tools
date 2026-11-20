@@ -1,8 +1,11 @@
 import { Link } from "@tanstack/react-router";
 
 const ALL = [
-  { to: "/wake-windows", label: "Wake windows", text: "Age-based sleep rhythm and a sample day." },
-  { to: "/diaper-cost", label: "Diaper cost", text: "Size by weight, and what a month of boxes costs." },
+  { to: "/wake-windows", label: "Wake window calculator", text: "Age-based sleep rhythm and a sample day." },
+  { to: "/diaper-cost", label: "Diaper cost calculator", text: "Size by weight, and what a month of boxes costs." },
+  { to: "/sleep-schedule", label: "Sleep schedule by age", text: "Wake windows, naps, and total sleep from newborn to 3." },
+  { to: "/diapers-by-age", label: "Diapers per month by age", text: "Typical daily and monthly counts, plus the usual size." },
+  { to: "/faq", label: "FAQ", text: "Short answers on sleep, diapers, and the driving calculator." },
   { to: "/ev-vs-hybrid", label: "EV vs hybrid", text: "Southern California fuel and electricity cost." },
 ] as const;
 

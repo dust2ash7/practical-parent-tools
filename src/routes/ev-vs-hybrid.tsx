@@ -1,14 +1,14 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { OtherTools } from "@/components/other-tools";
-import { Faq, Field, Kicker, Lead, Note, NumberField, Page, Panel, RangeField } from "@/components/ui";
+import { Faq, Field, Guide, Kicker, Lead, Note, NumberField, Page, Panel, RangeField } from "@/components/ui";
 import { compareDriving, RATE_PRESETS, SDGE_AVERAGE_RATE } from "@/lib/driving";
 import { money, trimNumber } from "@/lib/format";
 
 export const Route = createFileRoute("/ev-vs-hybrid")({
   head: () => ({
     meta: [
-      { title: "EV vs hybrid cost calculator for Southern California · Practical Parent Tools" },
+      { title: "EV vs hybrid cost calculator for Southern California · Parent Tools" },
       {
         name: "description",
         content:
@@ -219,6 +219,43 @@ function DrivingPage() {
           and resale are not in this comparison.
         </Note>
       </section>
+
+      <Guide title="What this comparison includes">
+        <p>
+          This page compares the energy to drive the same miles in an electric car and a hybrid, using a
+          home electricity rate and a gas price you can change. The defaults are Southern California on
+          purpose: an overnight EV rate near 13¢ per kilowatt-hour, and regular gas near a recent San Diego
+          price, so the page is useful before you type. Neither number is a live quote.
+        </p>
+        <p>
+          When you charge matters as much as the car. San Diego’s overnight EV window is far cheaper than a
+          typical residential average, and the 4 to 9pm window is expensive enough to flip the result. The
+          preset buttons switch those cases without making you hunt for the rate on a bill. Southern
+          California Edison is generally lower than SDG&E. If your plan is different, type the rate you
+          actually pay while the car is plugged in.
+        </p>
+        <h3>What a year of driving is not</h3>
+        <p>
+          Miles per kilowatt-hour and miles per gallon should come from a window sticker or a trip computer,
+          not the most optimistic lab number. The optional charging-loss toggle adds energy that never
+          reaches the battery, which is normal for home charging. Public fast charging is usually much more
+          expensive and is not in this math.
+        </p>
+        <p>
+          Maintenance is a simple yearly gap you can edit. It is not a service schedule. If you enter how
+          much more the EV costs to buy, break-even is that gap divided by the yearly operating difference.
+          It ignores loan interest, tax credits, insurance, registration, and what each car is worth when
+          you sell it. A result that says the EV is cheaper to run is not a reason to buy one, and a result
+          that says the hybrid is cheaper is not a reason to avoid one. It is the fuel line of the budget,
+          isolated so you can see it.
+        </p>
+        <p>
+          The baby pages on this site — the{" "}
+          <Link to="/wake-windows">wake window calculator</Link> and the{" "}
+          <Link to="/diaper-cost">diaper cost calculator</Link> — are separate. Nothing you type here is
+          saved.
+        </p>
+      </Guide>
 
       <section className="mt-8 max-w-2xl">
         <h2 className="font-serif text-2xl font-medium tracking-tight">How to use it</h2>

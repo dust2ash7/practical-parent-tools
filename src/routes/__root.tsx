@@ -12,11 +12,11 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Practical Parent Tools" },
+      { title: "Parent Tools" },
       {
         name: "description",
         content:
-          "Free calculators for baby wake windows, diaper size and monthly cost, and EV versus hybrid driving cost in Southern California.",
+          "Free parent tools: baby wake window calculator, diaper size and monthly cost, sleep schedules by age, and how many diapers per month.",
       },
       { name: "theme-color", content: "#141A17" },
     ],

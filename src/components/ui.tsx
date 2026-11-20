@@ -154,6 +154,17 @@ export function Faq({ items }: { items: { q: string; a: string }[] }) {
   );
 }
 
+export function Guide({ title, children }: { title: string; children: ReactNode }) {
+  return (
+    <article className="mt-10 max-w-2xl">
+      <h2 className="font-serif text-2xl font-medium tracking-tight text-ink">{title}</h2>
+      <div className="mt-4 space-y-4 text-muted [&_a]:font-medium [&_a]:text-sage [&_a]:underline [&_a]:underline-offset-4 [&_h3]:pt-2 [&_h3]:font-serif [&_h3]:text-xl [&_h3]:font-medium [&_h3]:tracking-tight [&_h3]:text-ink">
+        {children}
+      </div>
+    </article>
+  );
+}
+
 export function Note({ children }: { children: ReactNode }) {
   return <p className="mt-4 text-sm text-muted">{children}</p>;
 }

@@ -11,7 +11,10 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DiaperCostRouteImport } from './routes/diaper-cost'
+import { Route as DiapersByAgeRouteImport } from './routes/diapers-by-age'
 import { Route as EvVsHybridRouteImport } from './routes/ev-vs-hybrid'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as SleepScheduleRouteImport } from './routes/sleep-schedule'
 import { Route as WakeWindowsRouteImport } from './routes/wake-windows'
 
 const IndexRoute = IndexRouteImport.update({
@@ -24,9 +27,24 @@ const DiaperCostRoute = DiaperCostRouteImport.update({
   path: '/diaper-cost',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DiapersByAgeRoute = DiapersByAgeRouteImport.update({
+  id: '/diapers-by-age',
+  path: '/diapers-by-age',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EvVsHybridRoute = EvVsHybridRouteImport.update({
   id: '/ev-vs-hybrid',
   path: '/ev-vs-hybrid',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SleepScheduleRoute = SleepScheduleRouteImport.update({
+  id: '/sleep-schedule',
+  path: '/sleep-schedule',
   getParentRoute: () => rootRouteImport,
 } as any)
 const WakeWindowsRoute = WakeWindowsRouteImport.update({
@@ -38,34 +56,68 @@ const WakeWindowsRoute = WakeWindowsRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/diaper-cost': typeof DiaperCostRoute
+  '/diapers-by-age': typeof DiapersByAgeRoute
   '/ev-vs-hybrid': typeof EvVsHybridRoute
+  '/faq': typeof FaqRoute
+  '/sleep-schedule': typeof SleepScheduleRoute
   '/wake-windows': typeof WakeWindowsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/diaper-cost': typeof DiaperCostRoute
+  '/diapers-by-age': typeof DiapersByAgeRoute
   '/ev-vs-hybrid': typeof EvVsHybridRoute
+  '/faq': typeof FaqRoute
+  '/sleep-schedule': typeof SleepScheduleRoute
   '/wake-windows': typeof WakeWindowsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/diaper-cost': typeof DiaperCostRoute
+  '/diapers-by-age': typeof DiapersByAgeRoute
   '/ev-vs-hybrid': typeof EvVsHybridRoute
+  '/faq': typeof FaqRoute
+  '/sleep-schedule': typeof SleepScheduleRoute
   '/wake-windows': typeof WakeWindowsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/diaper-cost' | '/ev-vs-hybrid' | '/wake-windows'
+  fullPaths:
+    | '/'
+    | '/diaper-cost'
+    | '/diapers-by-age'
+    | '/ev-vs-hybrid'
+    | '/faq'
+    | '/sleep-schedule'
+    | '/wake-windows'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/diaper-cost' | '/ev-vs-hybrid' | '/wake-windows'
-  id: '__root__' | '/' | '/diaper-cost' | '/ev-vs-hybrid' | '/wake-windows'
+  to:
+    | '/'
+    | '/diaper-cost'
+    | '/diapers-by-age'
+    | '/ev-vs-hybrid'
+    | '/faq'
+    | '/sleep-schedule'
+    | '/wake-windows'
+  id:
+    | '__root__'
+    | '/'
+    | '/diaper-cost'
+    | '/diapers-by-age'
+    | '/ev-vs-hybrid'
+    | '/faq'
+    | '/sleep-schedule'
+    | '/wake-windows'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DiaperCostRoute: typeof DiaperCostRoute
+  DiapersByAgeRoute: typeof DiapersByAgeRoute
   EvVsHybridRoute: typeof EvVsHybridRoute
+  FaqRoute: typeof FaqRoute
+  SleepScheduleRoute: typeof SleepScheduleRoute
   WakeWindowsRoute: typeof WakeWindowsRoute
 }
 
@@ -85,11 +137,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DiaperCostRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/diapers-by-age': {
+      id: '/diapers-by-age'
+      path: '/diapers-by-age'
+      fullPath: '/diapers-by-age'
+      preLoaderRoute: typeof DiapersByAgeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/ev-vs-hybrid': {
       id: '/ev-vs-hybrid'
       path: '/ev-vs-hybrid'
       fullPath: '/ev-vs-hybrid'
       preLoaderRoute: typeof EvVsHybridRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sleep-schedule': {
+      id: '/sleep-schedule'
+      path: '/sleep-schedule'
+      fullPath: '/sleep-schedule'
+      preLoaderRoute: typeof SleepScheduleRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/wake-windows': {
@@ -105,7 +178,10 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DiaperCostRoute: DiaperCostRoute,
+  DiapersByAgeRoute: DiapersByAgeRoute,
   EvVsHybridRoute: EvVsHybridRoute,
+  FaqRoute: FaqRoute,
+  SleepScheduleRoute: SleepScheduleRoute,
   WakeWindowsRoute: WakeWindowsRoute,
 }
 export const routeTree = rootRouteImport
